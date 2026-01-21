@@ -1,0 +1,404 @@
+warning: unused import: `std::sync::Arc`
+  --> src\storage\btree.rs:11:5
+   |
+11 | use std::sync::Arc;
+   |     ^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused import: `Error`
+  --> src\storage\btree.rs:13:13
+   |
+13 | ...::{Error, R...
+   |       ^^^^^
+
+warning: unused imports: `SeekFrom` and `Seek`
+  --> src\storage\wal.rs:10:49
+   |
+10 | ...d, Seek, SeekFrom, W...
+   |       ^^^^  ^^^^^^^^
+
+warning: unused import: `Path`
+ --> src\storage\engine.rs:5:17
+  |
+5 | ...h::{Path, Pa...
+  |        ^^^^
+
+warning: unused import: `Error`
+  --> src\storage\engine.rs:13:13
+   |
+13 | ...::{Error, R...
+   |       ^^^^^
+
+warning: unused import: `std::sync::Arc`
+ --> src\raft\log.rs:7:5
+  |
+7 | use std::sync::Arc;
+  |     ^^^^^^^^^^^^^^
+
+warning: unused import: `tokio::sync::mpsc`
+  --> src\raft\election.rs:11:5
+   |
+11 | use tokio::sync::mpsc;
+   |     ^^^^^^^^^^^^^^^^^
+
+warning: unused import: `std::collections::HashMap`
+ --> src\raft\replication.rs:6:5
+  |
+6 | use std::collections::HashMap;
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `NodeRole`
+ --> src\raft\replication.rs:8:31
+  |
+8 | ...e, NodeRole};
+  |       ^^^^^^^^
+
+warning: unused import: `parking_lot::RwLock`
+ --> src\raft\node.rs:8:5
+  |
+8 | use parking_lot::RwLock;
+  |     ^^^^^^^^^^^^^^^^^^^
+
+warning: unused import: `timeout`
+  --> src\raft\node.rs:10:29
+   |
+10 | ...l, timeout};
+   |       ^^^^^^^
+
+warning: unused imports: `error` and `warn`
+  --> src\raft\node.rs:11:22
+   |
+11 | ...g, error, info, warn};
+   |       ^^^^^        ^^^^
+
+warning: unused import: `std::sync::Arc`
+ --> src\txn\mvcc.rs:7:5
+  |
+7 | use std::sync::Arc;
+  |     ^^^^^^^^^^^^^^
+
+warning: unused imports: `Deserialize` and `Serialize`
+  --> src\txn\mvcc.rs:10:13
+   |
+10 | ...::{Deserialize, Serialize};
+   |       ^^^^^^^^^^^  ^^^^^^^^^
+
+warning: unused import: `std::sync::Arc`
+ --> src\txn\lock.rs:6:5
+  |
+6 | use std::sync::Arc;
+  |     ^^^^^^^^^^^^^^
+
+warning: variable does not need to be mutable
+   --> src\raft\node.rs:242:13
+    |
+242 | ...et mut votes = ...
+    |       ----^^^^^
+    |       |
+    |       help: remove this `mut`
+    |
+    = note: `#[warn(unused_mut)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `heartbeat`
+   --> src\raft\node.rs:262:25
+    |
+262 | ...me(heartbeat) =...
+    |       ^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_heartbeat`
+    |
+    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused variable: `vote_request`
+   --> src\raft\node.rs:241:13
+    |
+241 | ...et vote_request = ...
+    |       ^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_vote_request`
+
+warning: unused variable: `votes`
+   --> src\raft\node.rs:242:13
+    |
+242 | ...et mut votes = ...
+    |       ^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_votes`
+
+warning: fields `len` and `crc` are never read
+  --> src\storage\wal.rs:56:5
+   |
+54 | struct WalRecordHeader {
+   |        --------------- fields in this struct
+55 |     /// Length of the ser...
+56 |     len: u32,
+   |     ^^^
+57 |     /// CRC32 checksum of...
+58 |     crc: u32,
+   |     ^^^
+   |
+   = note: `WalRecordHeader` has a derived impl for the trait `Debug`, but this is intentionally ignored during dead code analysis
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: struct `RaftHandle` is never constructed
+   --> src\raft\node.rs:287:12
+    |
+287 | ...ct RaftHandle {
+    |       ^^^^^^^^^^
+
+warning: associated items `new`, `propose`, `status`, and `shutdown` are never used
+   --> src\raft\node.rs:293:12
+    |
+291 | impl RaftHandle {
+    | --------------- associated items in this implementation
+292 |     /// Create a new handle ...
+293 |     pub fn new(command_tx: m...
+    |            ^^^
+...
+298 |     pub async fn propose(&se...
+    |                  ^^^^^^^
+...
+309 |     pub async fn status(&sel...
+    |                  ^^^^^^
+...
+320 |     pub async fn shutdown(&s...
+    |                  ^^^^^^^^
+
+warning: fields `key` and `old_value` are never read
+  --> src\txn\manager.rs:51:5
+   |
+50 | struct TransactionWrite {
+   |        ---------------- fields in this struct
+51 |     key: Vec<u8>,
+   |     ^^^
+52 |     /// Old value (None if...
+53 |     old_value: Option<Vec<...
+   |     ^^^^^^^^^
+   |
+   = note: `TransactionWrite` has derived impls for the traits `Clone` and `Debug`, but these are intentionally ignored during dead code analysis
+
+warning: method `get_writes` is never used
+   --> src\txn\manager.rs:113:8
+    |
+ 79 | impl Transaction {
+    | ---------------- method in this implementation
+...
+113 |     fn get_writes(&s...
+    |        ^^^^^^^^^^
+
+warning: method `peek` is never used
+  --> src\query\parser.rs:29:8
+   |
+15 | impl Parser {
+   | ----------- method in this implementation
+...
+29 |     fn peek(&s...
+   |        ^^^^
+
+warning: fields `storage` and `txn_manager` are never read
+  --> src\network\server.rs:43:5
+   |
+41 | pub struct PyuDbServer {
+   |            ----------- fields in this struct
+42 |     config: ServerConfig,
+43 |     storage: Arc<StorageE...
+   |     ^^^^^^^
+44 |     txn_manager: Arc<Tran...
+   |     ^^^^^^^^^^^
+
+warning: field `config` is never read
+  --> src\network\client.rs:32:5
+   |
+31 | pub struct PyuDbClient {
+   |            ----------- field in this struct
+32 |     config: ClientConfig,
+   |     ^^^^^^
+
+warning: `pyudb` (lib) generated 27 warnings (run `cargo fix --lib -p pyudb` to apply 19 suggestions)
+   Compiling pyudb v0.1.0 (C:\Users\tetika\distributed-database)
+error[E0433]: failed to resolve: could not find `QueryResult` in `query`
+  --> src\bin\cli.rs:53:23
+   |
+53 |         pyudb::query::QueryResult::Select { columns, rows } => {
+   |                       ^^^^^^^^^^^ could not find `QueryResult` in `query`
+
+error[E0433]: failed to resolve: could not find `QueryResult` in `query`
+   --> src\bin\cli.rs:105:23
+    |
+105 |         pyudb::query::QueryResult::Insert { rows_affected } => {
+    |                       ^^^^^^^^^^^ could not find `QueryResult` in `query`
+
+error[E0433]: failed to resolve: could not find `QueryResult` in `query`
+   --> src\bin\cli.rs:108:23
+    |
+108 |         pyudb::query::QueryResult::Update { rows_affected } => {
+    |                       ^^^^^^^^^^^ could not find `QueryResult` in `query`
+
+error[E0433]: failed to resolve: could not find `QueryResult` in `query`
+   --> src\bin\cli.rs:111:23
+    |
+111 |         pyudb::query::QueryResult::Delete { rows_affected } => {
+    |                       ^^^^^^^^^^^ could not find `QueryResult` in `query`
+
+error[E0433]: failed to resolve: could not find `QueryResult` in `query`
+   --> src\bin\cli.rs:114:23
+    |
+114 |         pyudb::query::QueryResult::CreateTable { table_name } => {
+    |                       ^^^^^^^^^^^ could not find `QueryResult` in `query`
+
+error[E0433]: failed to resolve: could not find `QueryResult` in `query`
+   --> src\bin\cli.rs:117:23
+    |
+117 |         pyudb::query::QueryResult::DropTable { table_name } => {
+    |                       ^^^^^^^^^^^ could not find `QueryResult` in `query`
+
+error[E0433]: failed to resolve: could not find `QueryResult` in `query`
+   --> src\bin\cli.rs:120:23
+    |
+120 |         pyudb::query::QueryResult::Transaction { action } => {
+    |                       ^^^^^^^^^^^ could not find `QueryResult` in `query`
+
+error[E0412]: cannot find type `QueryResult` in module `pyudb::query`
+  --> src\bin\cli.rs:51:41
+   |
+51 | fn format_result(result: &pyudb::query::QueryResult) -> String {
+   |                                         ^^^^^^^^^^^ not found in `pyudb::query`
+
+error[E0433]: failed to resolve: could not find `Value` in `query`
+  --> src\bin\cli.rs:89:43
+   |
+89 | ...                   pyudb::query::Value::Null => "NULL".to_string(),
+   |                                     ^^^^^ could not find `Value` in `query`
+   |
+help: consider importing one of these items
+   |
+ 5 + use serde_json::Value;
+   |
+ 5 + use tracing::Value;
+   |
+help: if you import `Value`, refer to it directly
+   |
+89 -                             pyudb::query::Value::Null => "NULL".to_string(),
+89 +                             Value::Null => "NULL".to_string(),
+   |
+
+error[E0433]: failed to resolve: could not find `Value` in `query`
+  --> src\bin\cli.rs:90:43
+   |
+90 | ...                   pyudb::query::Value::Bool(b) => b.to_string(),
+   |                                     ^^^^^ could not find `Value` in `query`
+   |
+help: consider importing one of these items
+   |
+ 5 + use serde_json::Value;
+   |
+ 5 + use tracing::Value;
+   |
+help: if you import `Value`, refer to it directly
+   |
+90 -                             pyudb::query::Value::Bool(b) => b.to_string(),
+90 +                             Value::Bool(b) => b.to_string(),
+   |
+
+error[E0433]: failed to resolve: could not find `Value` in `query`
+  --> src\bin\cli.rs:91:43
+   |
+91 | ...                   pyudb::query::Value::Int(i) => i.to_string(),
+   |                                     ^^^^^ could not find `Value` in `query`
+   |
+help: consider importing one of these items
+   |
+ 5 + use serde_json::Value;
+   |
+ 5 + use tracing::Value;
+   |
+help: if you import `Value`, refer to it directly
+   |
+91 -                             pyudb::query::Value::Int(i) => i.to_string(),
+91 +                             Value::Int(i) => i.to_string(),
+   |
+
+error[E0433]: failed to resolve: could not find `Value` in `query`
+  --> src\bin\cli.rs:92:43
+   |
+92 | ...                   pyudb::query::Value::Float(f) => f.to_string(),
+   |                                     ^^^^^ could not find `Value` in `query`
+   |
+help: consider importing one of these items
+   |
+ 5 + use serde_json::Value;
+   |
+ 5 + use tracing::Value;
+   |
+help: if you import `Value`, refer to it directly
+   |
+92 -                             pyudb::query::Value::Float(f) => f.to_string(),
+92 +                             Value::Float(f) => f.to_string(),
+   |
+
+error[E0433]: failed to resolve: could not find `Value` in `query`
+  --> src\bin\cli.rs:93:43
+   |
+93 | ...                   pyudb::query::Value::String(s) => s.clone(),
+   |                                     ^^^^^ could not find `Value` in `query`
+   |
+help: consider importing one of these items
+   |
+ 5 + use serde_json::Value;
+   |
+ 5 + use tracing::Value;
+   |
+help: if you import `Value`, refer to it directly
+   |
+93 -                             pyudb::query::Value::String(s) => s.clone(),
+93 +                             Value::String(s) => s.clone(),
+   |
+
+error[E0433]: failed to resolve: could not find `Value` in `query`
+  --> src\bin\cli.rs:94:43
+   |
+94 | ...                   pyudb::query::Value::Blob(b) => format!("<blob {} bytes>", b.len()),
+   |                                     ^^^^^ could not find `Value` in `query`
+   |
+help: consider importing one of these items
+   |
+ 5 + use serde_json::Value;
+   |
+ 5 + use tracing::Value;
+   |
+help: if you import `Value`, refer to it directly
+   |
+94 -                             pyudb::query::Value::Blob(b) => format!("<blob {} bytes>", b.len()),
+94 +                             Value::Blob(b) => format!("<blob {} bytes>", b.len()),
+   |
+
+warning: unused import: `tracing::info`
+ --> src\bin\cli.rs:9:5
+  |
+9 | use tracing::info;
+  |     ^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+error[E0282]: type annotations needed
+  --> src\bin\cli.rs:59:62
+   |
+59 |             let mut widths: Vec<usize> = columns.iter().map(|c| c.len()).collect();
+   |                                                              ^  - type must be known at this point
+   |
+help: consider giving this closure parameter an explicit type
+   |
+59 |             let mut widths: Vec<usize> = columns.iter().map(|c: /* Type */| c.len()).collect();
+   |                                                               ++++++++++++
+
+error[E0282]: type annotations needed
+  --> src\bin\cli.rs:61:33
+   |
+61 |                 for (i, val) in row.iter().enumerate() {
+   |                                 ^^^ cannot infer type
+
+error[E0282]: type annotations needed
+  --> src\bin\cli.rs:84:45
+   |
+84 |                 let row_strs: Vec<String> = row
+   |                                             ^^^ cannot infer type
+
+Some errors have detailed explanations: E0282, E0412, E0433.
+For more information about an error, try `rustc --explain E0282`.
+warning: `pyudb` (bin "pyudb-cli") generated 1 warning
+error: could not compile `pyudb` (bin "pyudb-cli") due to 17 previous errors; 1 warning emitted
