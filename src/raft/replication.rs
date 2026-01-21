@@ -3,9 +3,8 @@
 //! Handles replicating log entries from leader to followers
 
 use std::sync::Arc;
-use std::collections::HashMap;
 
-use super::state::{RaftState, NodeRole};
+use super::state::RaftState;
 use super::log::{RaftLog, LogEntry, CommandType};
 use super::rpc::{AppendEntriesRequest, AppendEntriesResponse};
 use crate::{Error, Result};

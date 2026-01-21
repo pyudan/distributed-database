@@ -8,7 +8,6 @@ use std::time::{Duration, Instant};
 
 use parking_lot::Mutex;
 use rand::Rng;
-use tokio::sync::mpsc;
 
 use super::state::{RaftState, NodeRole};
 use super::log::RaftLog;

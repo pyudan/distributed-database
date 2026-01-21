@@ -5,10 +5,9 @@
 use std::sync::Arc;
 use std::time::Duration;
 
-use parking_lot::RwLock;
 use tokio::sync::{mpsc, oneshot};
-use tokio::time::{interval, timeout};
-use tracing::{debug, error, info, warn};
+use tokio::time::interval;
+use tracing::{debug, info};
 
 use super::state::{RaftState, NodeRole};
 use super::log::{RaftLog, LogEntry, CommandType};
@@ -238,8 +237,8 @@ impl RaftNode {
     async fn start_election(&self) {
         info!("Starting election for term {}", self.state.current_term() + 1);
         
-        let vote_request = self.election.start_election();
-        let mut votes = 1; // Vote for self
+        let _vote_request = self.election.start_election();
+        let _votes = 1; // Vote for self
 
         // Request votes from all peers (in parallel in a real implementation)
         for (peer_id, _peer_addr) in &self.config.peers {
@@ -259,7 +258,7 @@ impl RaftNode {
     /// Send heartbeats to all followers
     async fn send_heartbeats(&self) {
         for (peer_id, _peer_addr) in &self.config.peers {
-            if let Some(heartbeat) = self.replication.create_heartbeat(peer_id) {
+            if let Some(_heartbeat) = self.replication.create_heartbeat(peer_id) {
                 // In a real implementation, this would send RPC to peer
                 debug!("Sending heartbeat to {}", peer_id);
             }

@@ -4,7 +4,6 @@
 
 use serde::{Deserialize, Serialize};
 use parking_lot::RwLock;
-use std::sync::Arc;
 
 use crate::{Error, Result};
 

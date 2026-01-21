@@ -2,7 +2,7 @@
 //!
 //! Combines B-Tree indexing with WAL for a complete storage solution
 
-use std::path::{Path, PathBuf};
+use std::path::PathBuf;
 use std::sync::atomic::{AtomicU64, Ordering};
 use std::sync::Arc;
 
@@ -10,7 +10,7 @@ use serde::{Deserialize, Serialize};
 
 use super::btree::BTree;
 use super::wal::{Wal, WalEntryType};
-use crate::{Error, Result};
+use crate::Result;
 
 /// Configuration for the storage engine
 #[derive(Debug, Clone, Serialize, Deserialize)]

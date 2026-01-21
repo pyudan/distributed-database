@@ -8,9 +8,8 @@
 use parking_lot::RwLock;
 use serde::{Deserialize, Serialize};
 use std::collections::BTreeMap;
-use std::sync::Arc;
 
-use crate::{Error, Result};
+use crate::Result;
 
 /// A versioned value with timestamp for MVCC
 #[derive(Debug, Clone, Serialize, Deserialize)]
